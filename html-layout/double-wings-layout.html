@@ -1,0 +1,57 @@
+
+<!-- 双飞翼布局多了一层dom,但是宽度挤压不会导致破裂 --> 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>double wings layout</title>
+    <style type="text/css">
+      header, footer {
+        height: 50px;
+        background-color: blue;
+        color: white;
+      }
+      .wrapper {
+        padding: 0;
+        overflow: hidden;
+      }
+      .col {
+        float: left;
+        background-color: grey;
+      }
+      .col:last-child::after {
+        clear: both;
+      }
+      .main {
+        width: 100%;
+        background-color: yellow;
+      }
+      .left {
+        width: 100px;
+        height: 200px;
+        margin-left: -100%;
+        background-color: green;
+      }
+      .right {
+        width: 100px;
+        height: 200px;
+        margin-left: -100px;
+        background-color: red;
+      }
+      .main-wrap {margin: 0 100px 0 100px;height: 200px;}
+    </style>
+
+  </head>
+  <body>
+    <header>header</header>
+    <section class="wrapper">
+      <section class="col main">
+        <sec class="main-wrap">main</sec>
+      </section>
+      <aside class="col left"></aside>
+      <aside class="col right"></aside>
+    </section>
+    <footer>footer</footer>
+  </body>
+</html>
